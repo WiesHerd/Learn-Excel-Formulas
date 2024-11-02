@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50;
+}
+
+.track-wrapper {
+  @apply max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-sm;
+}
+
+.track-nav {
+  @apply flex justify-center gap-4 mb-8;
+}
+
+.track-nav-button {
+  @apply px-6 py-2 rounded-full;
+}
+
+.track-nav-button.active {
+  @apply bg-black text-white;
+}
+
+.track-nav-button.inactive {
+  @apply bg-gray-100;
+}
+
+.track-title {
+  @apply text-2xl font-bold mb-2;
+}
+
+.track-description {
+  @apply text-gray-600 mb-8;
+}
+
+.info-grid {
+  @apply grid grid-cols-2 gap-x-8 mb-12;
+}
+
+.info-label {
+  @apply text-sm text-gray-600 font-medium mb-1;
+}
+
+.info-value {
+  @apply font-bold;
+}
+
+.section-title {
+  @apply text-xl font-bold mb-4;
+}
+
+.formula-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.formula-button {
+  @apply text-left p-4 bg-[#F8F9FF] rounded hover:bg-[#F0F2FF] transition-colors;
+}
