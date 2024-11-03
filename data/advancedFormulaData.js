@@ -1127,6 +1127,20 @@ export const advancedFormulaData = {
       "Verify payment frequency",
       "Check sign conventions"
     ],
+    commonMistakes: [
+      "Using wrong period conversion (e.g., forgetting to convert annual to monthly)",
+      "Mixing up payment sign conventions (positive vs negative)",
+      "Forgetting to account for payment timing (beginning vs end of period)",
+      "Not considering inflation in long-term calculations",
+      "Overlooking the impact of fees and taxes"
+    ],
+    tipsAndTricks: [
+      "Use negative values for payments/investments out",
+      "Convert annual rates to monthly (rate/12)",
+      "Convert years to periods (years*12 for monthly)",
+      "Consider timing of payments (start vs end of period)",
+      "Use with PV to understand total interest earned"
+    ],
     examples: [
       {
         title: "Savings Account Growth",

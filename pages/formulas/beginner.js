@@ -50,7 +50,7 @@ export default function BeginnerTrack() {
           <div className="grid grid-cols-2 gap-x-16 mb-12">
             <div>
               <h2 className="text-sm text-gray-600 mb-1">Estimated Time</h2>
-              <p>4-6 hours</p>
+              <p>15-20 minutes</p>
             </div>
             <div>
               <h2 className="text-sm text-gray-600 mb-1">Prerequisites</h2>

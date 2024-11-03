@@ -45,7 +45,7 @@ export default function IntermediateTrack() {
           <div className="grid grid-cols-2 gap-x-16 mb-12">
             <div>
               <h2 className="text-sm text-gray-600 mb-1">Estimated Time</h2>
-              <p>6-8 hours</p>
+              <p>30-40 minutes</p>
             </div>
             <div>
               <h2 className="text-sm text-gray-600 mb-1">Prerequisites</h2>
