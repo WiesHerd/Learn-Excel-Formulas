@@ -81,7 +81,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Estimated Time</p>
-                    <p className="font-medium">2-3 hours</p>
+                    <p className="font-medium">30-40 minutes</p>
                   </div>
                 </div>
 
@@ -120,7 +120,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Estimated Time</p>
-                    <p className="font-medium">8-10 hours</p>
+                    <p className="font-medium">30-40 minutes</p>
                   </div>
                 </div>
 
