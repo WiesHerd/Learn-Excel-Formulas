@@ -1,25 +1,25 @@
 import { useRouter } from 'next/router';
-import { beginnerFormulas } from '../../../data/beginnerFormulas';
-import { intermediateFormulas } from '../../../data/intermediateFormulas';
-import { advancedFormulas } from '../../../data/advancedFormulas';
+import { beginnerFormulaData } from '../../../data/beginnerFormulaData';
+import { intermediateFormulaData } from '../../../data/intermediateFormulaData';
+import { advancedFormulaData } from '../../../data/advancedFormulaData';
 
 export default function FormulaDetail() {
   const router = useRouter();
   const { level, formula: formulaId } = router.query;
 
   const formulasMap = {
-    beginner: beginnerFormulas,
-    intermediate: intermediateFormulas,
-    advanced: advancedFormulas,
+    beginner: beginnerFormulaData,
+    intermediate: intermediateFormulaData,
+    advanced: advancedFormulaData,
   };
 
-  const formula = formulasMap[level]?.find(f => f.id === formulaId);
+  const formula = formulasMap[level]?.[formulaId];
 
   if (!formula) return <div>Loading...</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6">{formula.name}</h1>
+      <h1 className="text-4xl font-bold mb-6">{formula.title || formulaId}</h1>
       
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Description</h2>
@@ -46,10 +46,10 @@ export default function FormulaDetail() {
 
       <section className="grid md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Common Pitfalls</h2>
+          <h2 className="text-2xl font-bold mb-4">Common Mistakes</h2>
           <ul className="list-disc pl-5">
-            {formula.commonPitfalls.map((pitfall, index) => (
-              <li key={index} className="mb-2 text-gray-700">{pitfall}</li>
+            {formula.commonMistakes.map((mistake, index) => (
+              <li key={index} className="mb-2 text-gray-700">{mistake}</li>
             ))}
           </ul>
         </div>
