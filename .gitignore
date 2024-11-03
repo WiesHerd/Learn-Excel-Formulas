@@ -1,7 +1,12 @@
-﻿# Dependencies
-node_modules/
+# Dependencies
+/node_modules
 /.pnp
 .pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # Testing
 /coverage
@@ -23,7 +28,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local env files
+.env*
 .env*.local
 
 # Vercel
 .vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

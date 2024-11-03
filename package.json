@@ -1,17 +1,13 @@
 {
+  "name": "excel-formula-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "name": "learnexcel",
-  "version": "1.0.0",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "next": "^14.1.0",
     "react": "^18.2.0",
@@ -20,6 +16,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.2"
   }
 }
