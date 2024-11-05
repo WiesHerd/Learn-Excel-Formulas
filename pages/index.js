@@ -142,48 +142,70 @@ export default function Home() {
 
         {/* ChatGPT Section */}
         <div className="max-w-7xl mx-auto mb-12">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="font-bold mb-4 flex items-center">
-              <span className="text-2xl mr-2">🤖</span>
+          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8">
+            <h3 className="font-bold mb-6 text-lg sm:text-xl flex items-center">
+              <span className="text-xl sm:text-2xl mr-2">🤖</span>
               How to Use ChatGPT for Excel Formulas
             </h3>
             
-            <div className="grid grid-cols-2 gap-6">
+            {/* Example Scenario - Full width on mobile */}
+            <div className="mb-4 sm:mb-6">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-3">Example Scenario</h4>
-                <p className="text-gray-700 mb-3">
+                <p className="text-gray-700 mb-3 text-sm sm:text-base">
                   "I need a formula to find the last sale date for each customer from a sales log"
                 </p>
                 <div className="bg-white p-3 rounded border border-gray-200">
                   <p className="text-sm text-gray-600 mb-2">Ask ChatGPT:</p>
-                  <p className="text-sm">"I have an Excel sheet with columns: Customer Name (A), Sale Date (B). I need a formula to find the most recent sale date for each customer. Can you help?"</p>
+                  <p className="text-sm leading-relaxed">
+                    "I have an Excel sheet with columns: Customer Name (A), Sale Date (B). 
+                    I need a formula to find the most recent sale date for each customer. Can you help?"
+                  </p>
                 </div>
               </div>
+            </div>
 
+            {/* Tips Section - Full width on mobile */}
+            <div className="mb-6">
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-3">Tips for Getting Better Answers</h4>
-                <ul className="text-sm text-gray-700 space-y-2">
-                  <li>✓ Describe your data structure (columns, rows)</li>
-                  <li>✓ Specify any conditions or exceptions</li>
-                  <li>✓ Ask for step-by-step explanation</li>
-                  <li>✓ Request examples with sample data</li>
+                <ul className="text-sm sm:text-base text-gray-700 space-y-2">
+                  <li className="flex items-start">
+                    <span className="mr-2">✓</span>
+                    <span>Describe your data structure (columns, rows)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">✓</span>
+                    <span>Specify any conditions or exceptions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">✓</span>
+                    <span>Ask for step-by-step explanation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">✓</span>
+                    <span>Request examples with sample data</span>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-6 flex justify-between items-center bg-black text-white p-4 rounded-lg">
-              <div>
-                <h4 className="font-semibold mb-1">Try it yourself!</h4>
-                <p className="text-sm text-gray-300">Get instant help with your Excel formulas</p>
+            {/* Try it yourself section - stack elements on mobile */}
+            <div className="mt-6 bg-black text-white p-4 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+                <div>
+                  <h4 className="font-semibold mb-1">Try it yourself!</h4>
+                  <p className="text-sm text-gray-300">Get instant help with your Excel formulas</p>
+                </div>
+                <a 
+                  href="https://chat.openai.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-100 transition-colors font-medium text-center"
+                >
+                  Open ChatGPT →
+                </a>
               </div>
-              <a 
-                href="https://chat.openai.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-100 transition-colors font-medium"
-              >
-                Open ChatGPT →
-              </a>
             </div>
           </div>
         </div>
