@@ -4,20 +4,20 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <main className="container mx-auto px-4 py-16">
-        {/* Header with Quiz Button */}
-        <div className="text-center mb-16 relative">
-          <div className="absolute top-0 right-0 mr-[calc((100%-1280px)/2)]">
-            <Link
-              href="/quiz"
-              className="inline-block px-6 py-3 bg-[#3498db] hover:bg-[#2980b9] text-white rounded-full transition-colors"
-            >
-              Take the Excel Formula Quiz
-            </Link>
-          </div>
+        {/* Header */}
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4">Learn Excel Formulas</h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-8">
             Master Excel formulas from basic to advanced with interactive examples
           </p>
+          
+          {/* Quiz Button */}
+          <Link
+            href="/quiz"
+            className="inline-block px-8 py-3 bg-[#3498db] hover:bg-[#2980b9] text-white rounded-full transition-colors"
+          >
+            Take the Excel Formula Quiz
+          </Link>
         </div>
 
         {/* Track Cards Grid */}
