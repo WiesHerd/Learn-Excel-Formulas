@@ -11,6 +11,10 @@ export default function FormulaTrack() {
   const router = useRouter();
   const { level } = router.query;
 
+  if (!level || !['beginner', 'intermediate', 'advanced'].includes(level)) {
+    return <div>Invalid level selected</div>;
+  }
+
   // Get the correct formula data based on level
   const getFormulaData = () => {
     switch(level) {

@@ -274,10 +274,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Quiz Button - Add this as the last element before closing the main tag */}
+        {/* Quiz Button */}
         <div className="max-w-7xl mx-auto text-center mt-16 mb-12">
           <Link 
-            href="/quiz" 
+            href="/quiz/beginner" 
             className="inline-block bg-[#3B82F6] text-white font-medium px-8 py-3 rounded-full hover:bg-[#2563EB] transition-colors"
           >
             Take the Excel Formula Quiz

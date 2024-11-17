@@ -12,9 +12,14 @@ const quizQuestions = {
         { text: "Averages numbers in a range", isCorrect: false }
       ]
     },
-    // Add more questions...
+    // Add more questions here
   ],
-  // Add intermediate and advanced questions...
+  intermediate: [
+    // Add intermediate questions
+  ],
+  advanced: [
+    // Add advanced questions
+  ]
 };
 
 export default function QuizPage() {
