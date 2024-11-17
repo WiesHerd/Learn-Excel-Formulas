@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { basicsData } from '../data/basicsData';
 
 export default function Home() {
   return (
@@ -6,17 +7,28 @@ export default function Home() {
       <main className="container mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">Learn Excel Formulas</h1>
+          <h1 className="text-4xl font-bold mb-4">Master Excel</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Master Excel formulas from basic to advanced with interactive examples
+            Learn Excel from the ground up - from basics to advanced formulas
           </p>
-          
-          {/* Quiz Button */}
-          <Link
-            href="/quiz"
-            className="inline-block px-8 py-3 bg-[#3498db] hover:bg-[#2980b9] text-white rounded-full transition-colors"
-          >
-            Take the Excel Formula Quiz
+        </div>
+
+        {/* Excel Basics Card - Add this before your formula tracks */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <Link href="/basics">
+            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-green-500 hover:border-green-600 transition-colors">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Start Here: Excel Basics</h2>
+                  <p className="text-gray-600">Master the fundamentals before diving into formulas</p>
+                </div>
+                <div className="text-green-500">
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </Link>
         </div>
 
@@ -260,6 +272,16 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Quiz Button - Add this as the last element before closing the main tag */}
+        <div className="max-w-7xl mx-auto text-center mt-16 mb-12">
+          <Link 
+            href="/quiz" 
+            className="inline-block bg-[#3B82F6] text-white font-medium px-8 py-3 rounded-full hover:bg-[#2563EB] transition-colors"
+          >
+            Take the Excel Formula Quiz
+          </Link>
         </div>
 
       </main>
