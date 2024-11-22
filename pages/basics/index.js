@@ -57,7 +57,7 @@ export default function BasicsIndex() {
             </Link>
           </div>
 
-          {/* Excel Interface */}
+          {/* Excel Interface Card */}
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="flex items-center mb-6">
               <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
@@ -67,6 +67,25 @@ export default function BasicsIndex() {
               </div>
               <h3 className="text-xl font-semibold">Excel Interface</h3>
             </div>
+
+            {/* Shortcuts Download Banner - NEW! */}
+            <div className="bg-purple-50 p-4 rounded-lg mb-6 border-2 border-purple-200">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-semibold text-purple-900">Excel Shortcuts Guide</h4>
+                  <p className="text-sm text-purple-700">Download our comprehensive shortcuts PDF</p>
+                </div>
+                <Link href="/resources/shortcuts">
+                  <button className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors flex items-center">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download PDF
+                  </button>
+                </Link>
+              </div>
+            </div>
+
             <ul className="space-y-3 mb-6">
               <li className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,8 +106,9 @@ export default function BasicsIndex() {
                 Quick Access Toolbar
               </li>
             </ul>
+
             <Link href="/basics/excel-interface">
-              <button className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors">
+              <button className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors w-full">
                 Start Learning
               </button>
             </Link>

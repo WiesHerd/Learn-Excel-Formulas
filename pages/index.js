@@ -227,8 +227,8 @@ export default function Home() {
           <div className="bg-black text-white rounded-lg p-6">
             <h3 className="text-xl font-semibold mb-3">Need Help?</h3>
             <p className="mb-4">Join these Excel communities and resources to get help with formulas:</p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <a href="https://www.reddit.com/r/excel" 
                  target="_blank" 
                  rel="noopener noreferrer"
@@ -246,35 +246,63 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
-              <a href="https://support.microsoft.com/en-us/excel" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <a href="https://chandoo.org" 
+                 target="_blank"
+                 rel="noopener noreferrer" 
+                 className="bg-white text-black px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                <h4 className="font-bold">Chandoo.org</h4>
+                <p className="text-sm text-gray-600">Excel tutorials & advanced techniques</p>
+              </a>
+
+              <a href="https://support.microsoft.com/excel" 
+                 target="_blank"
+                 rel="noopener noreferrer" 
                  className="bg-white text-black px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                 <h4 className="font-bold">Microsoft Excel Help</h4>
                 <p className="text-sm text-gray-600">Official documentation & tutorials</p>
               </a>
-              
-              <a href="https://excelforum.com" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
+
+              <a href="https://www.excelforum.com" 
+                 target="_blank"
+                 rel="noopener noreferrer" 
                  className="bg-white text-black px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
                 <h4 className="font-bold">Excel Forums</h4>
                 <p className="text-sm text-gray-600">Dedicated Excel discussion boards</p>
-              </a>
-              
-              <a href="https://chandoo.org/wp/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="bg-white text-black px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-                <h4 className="font-bold">Chandoo.org</h4>
-                <p className="text-sm text-gray-600">Excel tutorials & advanced techniques</p>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Quiz Button */}
+        {/* Resources Section */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <div className="bg-black text-white rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-3">Resources</h3>
+            <p className="mb-4">Download these Excel resources to boost your productivity:</p>
+            
+            <button 
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/files/excel-shortcuts.pdf';  // Make sure to add the PDF in the public/files folder
+                link.download = 'excel-shortcuts.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="w-full bg-white text-black px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-between group"
+            >
+              <div>
+                <h4 className="font-bold">Excel Shortcuts PDF</h4>
+                <p className="text-sm text-gray-600">Download our complete shortcuts guide</p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Quiz Button - At the bottom */}
         <div className="max-w-7xl mx-auto text-center mt-16 mb-12">
           <Link 
             href="/quiz/beginner" 
