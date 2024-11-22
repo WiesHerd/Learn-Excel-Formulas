@@ -69,11 +69,11 @@ export default function AdvancedTrack() {
             </div>
           </section>
 
-          {/* Financial Functions */}
+          {/* Array Manipulation */}
           <section className="mb-8">
-            <h2 className="text-lg font-semibold mb-4">Financial Functions</h2>
+            <h2 className="text-lg font-semibold mb-4">Array Manipulation</h2>
             <div className="grid grid-cols-2 gap-4">
-              {["NPV", "IRR", "PMT", "FV"].map(formula => (
+              {["RANDARRAY", "SORTBY", "HSTACK", "VSTACK"].map(formula => (
                 <button
                   key={formula}
                   onClick={() => setSelectedFormula(formula)}
@@ -101,11 +101,11 @@ export default function AdvancedTrack() {
             </div>
           </section>
 
-          {/* Database Functions */}
+          {/* Text Processing */}
           <section className="mb-8">
-            <h2 className="text-lg font-semibold mb-4">Database Functions</h2>
+            <h2 className="text-lg font-semibold mb-4">Text Processing</h2>
             <div className="grid grid-cols-2 gap-4">
-              {["DSUM", "DCOUNT", "FORECAST.LINEAR"].map(formula => (
+              {["TEXTSPLIT", "TEXTBEFORE", "TEXTAFTER", "ARRAYTOTEXT"].map(formula => (
                 <button
                   key={formula}
                   onClick={() => setSelectedFormula(formula)}

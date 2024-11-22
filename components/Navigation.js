@@ -10,6 +10,9 @@ export default function Navigation({ currentPage }) {
           </svg>
           Back to Tracks
         </Link>
+        <Link href="/shortcuts" className="text-gray-600 hover:text-gray-900">
+          Excel Shortcuts
+        </Link>
       </div>
     </div>
   );

@@ -3,134 +3,106 @@ import { basicsContentData } from '../../data/basicsContentData';
 
 export default function ExcelInterface() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="container mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="max-w-7xl mx-auto mb-12">
-          <Link 
-            href="/basics"
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-8"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Excel Basics
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      {/* Shortcuts Banner - Add this at the top after the title */}
+      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-blue-900 mb-2">Excel Shortcuts Guide</h2>
+            <p className="text-blue-700">Download our comprehensive guide to Excel shortcuts</p>
+          </div>
+          <Link href="/resources/shortcuts">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Shortcuts PDF
+            </button>
           </Link>
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold mb-4">Excel Interface</h1>
+      <p className="text-gray-600 mb-8">Master Excel's interface and essential shortcuts</p>
+
+      {/* Rest of your existing content */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Getting Started with Excel's Interface</h2>
+        {/* Your existing content */}
+      </section>
+
+      {/* Navigation Fundamentals section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Excel Navigation Fundamentals</h2>
+        {/* Your existing content */}
+      </section>
+
+      {/* Advanced Navigation Shortcuts section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Advanced Navigation Shortcuts</h2>
+        <p className="mb-4">Power user shortcuts for faster navigation:</p>
+        
+        {/* Add this new section */}
+        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mt-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-blue-900 mb-2">Want All Excel Shortcuts?</h3>
+              <p className="text-blue-700">Download our comprehensive shortcuts guide covering all Excel commands</p>
+            </div>
+            <Link href="/resources/shortcuts">
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Get Complete Shortcuts PDF
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Excel Shortcuts Reference section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Excel Shortcuts Reference</h2>
+        
+        <p>Here are some essential Excel shortcuts to help you work more efficiently:</p>
+
+        <div className="grid grid-cols-2 gap-4 mt-4 mb-6">
+          <div className="bg-gray-50 p-4 rounded">
+            <h3 className="font-semibold mb-2">Navigation</h3>
+            <ul className="space-y-2">
+              <li><code className="bg-white px-2 py-1 rounded">Arrow Keys</code> - Move one cell</li>
+              <li><code className="bg-white px-2 py-1 rounded">Ctrl + Arrow</code> - Jump to edge</li>
+              <li><code className="bg-white px-2 py-1 rounded">Page Up/Down</code> - Move one screen</li>
+            </ul>
+          </div>
           
-          <h1 className="text-4xl font-bold mb-4">Excel Interface</h1>
-          <p className="text-xl text-gray-600 mb-8">Master Excel's interface and essential shortcuts</p>
+          <div className="bg-gray-50 p-4 rounded">
+            <h3 className="font-semibold mb-2">Editing</h3>
+            <ul className="space-y-2">
+              <li><code className="bg-white px-2 py-1 rounded">Ctrl + C</code> - Copy</li>
+              <li><code className="bg-white px-2 py-1 rounded">Ctrl + V</code> - Paste</li>
+              <li><code className="bg-white px-2 py-1 rounded">Ctrl + Z</code> - Undo</li>
+            </ul>
+          </div>
         </div>
 
-        {/* Navigation Shortcuts Section */}
-        <div className="max-w-7xl mx-auto space-y-12">
-          <section className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Navigation Shortcuts</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-medium mb-4">Essential Movement</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Ctrl + →</kbd>
-                    <span>Move to last cell in row</span>
-                  </div>
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Ctrl + ↓</kbd>
-                    <span>Move to last cell in column</span>
-                  </div>
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Ctrl + Home</kbd>
-                    <span>Go to beginning of worksheet</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-medium mb-4">Selection Shortcuts</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Ctrl + Space</kbd>
-                    <span>Select entire column</span>
-                  </div>
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Shift + Space</kbd>
-                    <span>Select entire row</span>
-                  </div>
-                  <div className="flex items-center">
-                    <kbd className="px-2 py-1 bg-gray-200 rounded mr-3">Ctrl + A</kbd>
-                    <span>Select all cells</span>
-                  </div>
-                </div>
-              </div>
+        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">Need More Shortcuts?</h3>
+              <p className="text-blue-700">Get our complete Excel shortcuts PDF guide</p>
             </div>
-          </section>
-
-          {/* Ribbon Interface Section */}
-          <section className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Ribbon Interface Overview</h2>
-            <div className="space-y-6">
-              <div className="border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4">Common Tabs</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Home Tab</h4>
-                    <ul className="text-sm space-y-2">
-                      <li>• Formatting options</li>
-                      <li>• Cell styles</li>
-                      <li>• Find & Select</li>
-                    </ul>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Insert Tab</h4>
-                    <ul className="text-sm space-y-2">
-                      <li>• Charts</li>
-                      <li>• Tables</li>
-                      <li>• Illustrations</li>
-                    </ul>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <h4 className="font-medium mb-2">Data Tab</h4>
-                    <ul className="text-sm space-y-2">
-                      <li>• Sort & Filter</li>
-                      <li>• Data validation</li>
-                      <li>• Data tools</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Quick Access Toolbar Section */}
-          <section className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Quick Access Toolbar</h2>
-            <div className="space-y-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4">Customization Tips:</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Add frequently used commands</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Organize commands in order of use</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Remove rarely used commands</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+            <Link href="/resources/shortcuts">
+              <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors">
+                Download PDF Guide
+              </button>
+            </Link>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Rest of the sections */}
     </div>
   );
 } 

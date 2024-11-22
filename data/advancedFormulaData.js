@@ -265,7 +265,7 @@ export const advancedFormulaData = {
             result: "23.37%",
             explanation: "This example:\n" +
                 "• Initial investment: -$50,000\n" +
-                "• Three years of increasing returns\n" +
+                " Three years of increasing returns\n" +
                 "• IRR of 23.37% means project exceeds 20% return requirement\n" +
                 "• Positive IRR indicates profitable investment\n\n" +
                 "Note: IRR is the rate that makes NPV = 0"
@@ -1169,6 +1169,565 @@ export const advancedFormulaData = {
       ],
       answer: "=FV(B2/12, B3*12, -B1)",
       hint: "Use monthly rate and convert years to months"
+    }
+  },
+
+  // Array Manipulation Section
+  "RANDARRAY": {
+    syntax: "=RANDARRAY([rows], [columns], [min], [max], [whole_numbers])",
+    description: "Returns an array of random numbers between 0 and 1, or between specified minimum and maximum values",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/randarray-function-21261e55-3bec-4885-86a6-8b0a47fd4d33",
+    whenToUse: [
+      "Generating sample data for testing",
+      "Creating random distributions",
+      "Simulating data scenarios",
+      "Building Monte Carlo simulations",
+      "Creating randomized test cases"
+    ],
+    bestPractices: [
+      "Specify whole_numbers parameter for integer results",
+      "Use appropriate row and column counts",
+      "Consider using ROUND with decimal results",
+      "Set min/max for meaningful ranges",
+      "Use with other functions for complex simulations"
+    ],
+    commonMistakes: [
+      "Forgetting it returns volatile results",
+      "Not specifying whole numbers when needed",
+      "Incorrect row/column dimensions",
+      "Assuming results are static",
+      "Not setting appropriate min/max bounds"
+    ],
+    tipsAndTricks: [
+      "Combine with SORT for random sampling",
+      "Use with IF for conditional random data",
+      "Wrap in ROUND for specific decimal places",
+      "Use as input for other array functions",
+      "Create lookup tables with random values"
+    ],
+    examples: [
+      {
+        title: "Basic Random Array",
+        data: [
+          ["Formula", "Result"],
+          ["=RANDARRAY(3,2)", "Creates 3x2 array of random decimals"]
+        ],
+        formula: "=RANDARRAY(3,2)",
+        result: "[[0.45, 0.78], [0.23, 0.91], [0.67, 0.34]]",
+        explanation: "Generates a 3x2 array of random numbers between 0 and 1"
+      },
+      {
+        title: "Random Integers",
+        data: [
+          ["Formula", "Result"],
+          ["=RANDARRAY(2,2, 1, 100, TRUE)", "Creates 2x2 array of random integers"]
+        ],
+        formula: "=RANDARRAY(2,2, 1, 100, TRUE)",
+        result: "[[45, 78], [23, 91]]",
+        explanation: "Generates a 2x2 array of random integers between 1 and 100"
+      }
+    ],
+    practice: {
+      question: "Create a 3x3 array of random integers between 1 and 10",
+      data: [
+        ["Task:", "Generate random integers for a simple game board"]
+      ],
+      answer: "=RANDARRAY(3,3, 1, 10, TRUE)",
+      hint: "Use RANDARRAY with 5 parameters, setting whole_numbers to TRUE"
+    }
+  },
+
+  "SORTBY": {
+    syntax: "=SORTBY(array, by_array1, [sort_order1], [by_array2], [sort_order2], ...)",
+    description: "Sorts the contents of an array based on the values in another array or arrays",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/sortby-function-cd2d7a62-1b93-435c-b561-d6a35134f28f",
+    whenToUse: [
+      "Sorting data by multiple criteria",
+      "Custom sort orders",
+      "Sorting related data together",
+      "Creating ranked lists",
+      "Organizing data hierarchically"
+    ],
+    bestPractices: [
+      "Ensure arrays are same size",
+      "Use consistent sort orders",
+      "Verify data types match",
+      "Consider using multiple sort criteria",
+      "Check for blank cells"
+    ],
+    commonMistakes: [
+      "Mismatched array sizes",
+      "Incorrect sort order parameters",
+      "Mixing data types",
+      "Not handling blank cells",
+      "Forgetting secondary sort criteria"
+    ],
+    tipsAndTricks: [
+      "Combine with UNIQUE for distinct sorted values",
+      "Use -1 for descending sort",
+      "Sort by multiple columns",
+      "Handle blanks with IFNA",
+      "Create custom sort orders"
+    ],
+    examples: [
+      {
+        title: "Sort by Single Column",
+        data: [
+          ["Names", "Scores"],
+          ["John", 85],
+          ["Alice", 92],
+          ["Bob", 78]
+        ],
+        formula: "=SORTBY(A2:A4, B2:B4, -1)",
+        result: "Alice\nJohn\nBob",
+        explanation: "Sorts names by scores in descending order"
+      },
+      {
+        title: "Multiple Column Sort",
+        data: [
+          ["Department", "Sales", "Region"],
+          ["Sales", 50000, "North"],
+          ["Sales", 45000, "South"],
+          ["Marketing", 30000, "North"]
+        ],
+        formula: "=SORTBY(A2:C4, A2:A4, 1, B2:B4, -1)",
+        result: "Marketing, 30000, North\nSales, 50000, North\nSales, 45000, South",
+        explanation: "Sorts first by department ascending, then by sales descending"
+      }
+    ],
+    practice: {
+      question: "Sort a list of products by price (descending) and then by name (ascending)",
+      data: [
+        ["Product", "Price"],
+        ["Widget", 10],
+        ["Gadget", 15],
+        ["Tool", 10]
+      ],
+      answer: "=SORTBY(A2:A4, B2:B4, -1, A2:A4, 1)",
+      hint: "Use SORTBY with two sort criteria: price descending (-1) and name ascending (1)"
+    }
+  },
+
+  "HSTACK": {
+    syntax: "=HSTACK(array1, [array2], ...)",
+    description: "Combines arrays horizontally by appending columns, creating a single array",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/hstack-function-98c4ab76-10fe-4b4e-88c7-41e5c86f5e36",
+    whenToUse: [
+      "Combining data from multiple columns",
+      "Merging separate data ranges horizontally",
+      "Creating consolidated reports",
+      "Building combined data sets",
+      "Joining related data side by side"
+    ],
+    bestPractices: [
+      "Ensure consistent row counts",
+      "Verify data types are compatible",
+      "Consider final array dimensions",
+      "Handle missing values appropriately",
+      "Check for proper alignment"
+    ],
+    commonMistakes: [
+      "Mismatched row counts",
+      "Inconsistent data types",
+      "Not handling empty arrays",
+      "Forgetting about array size limits",
+      "Incorrect array references"
+    ],
+    tipsAndTricks: [
+      "Combine with VSTACK for complex layouts",
+      "Use with FILTER for dynamic combinations",
+      "Pre-process arrays for consistency",
+      "Handle errors with IFERROR",
+      "Create multi-column reports"
+    ],
+    examples: [
+      {
+        title: "Basic Column Combination",
+        data: [
+          ["Names", "Scores", "Grades"],
+          ["John", 85, "B"],
+          ["Alice", 92, "A"],
+          ["Bob", 78, "C"]
+        ],
+        formula: "=HSTACK(A2:A4, C2:C4)",
+        result: "[[John, B], [Alice, A], [Bob, C]]",
+        explanation: "Combines names and grades into a single array side by side"
+      },
+      {
+        title: "Multiple Array Combination",
+        data: [
+          ["ID", "Name", "Score"],
+          [1, "John", 85],
+          [2, "Alice", 92],
+          [3, "Bob", 78]
+        ],
+        formula: "=HSTACK(A2:A4, B2:B4, C2:C4)",
+        result: "[[1, John, 85], [2, Alice, 92], [3, Bob, 78]]",
+        explanation: "Combines three columns into a single horizontal array"
+      }
+    ],
+    practice: {
+      question: "Combine employee names with their department and salary information",
+      data: [
+        ["Name", "Department", "Salary"],
+        ["John", "Sales", 50000],
+        ["Alice", "Marketing", 55000],
+        ["Bob", "Sales", 48000]
+      ],
+      answer: "=HSTACK(A2:A4, B2:B4, C2:C4)",
+      hint: "Use HSTACK to combine all three columns into a single array"
+    }
+  },
+
+  "VSTACK": {
+    syntax: "=VSTACK(array1, [array2], ...)",
+    description: "Combines arrays vertically by stacking rows, creating a single array",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/vstack-function-a4b86897-be0f-48fc-adca-fcc10d795a9c",
+    whenToUse: [
+      "Combining data from multiple rows",
+      "Merging separate data ranges vertically",
+      "Consolidating multiple reports",
+      "Combining data from different sheets",
+      "Creating master lists"
+    ],
+    bestPractices: [
+      "Ensure consistent column counts",
+      "Match data types across arrays",
+      "Consider final array size",
+      "Handle headers appropriately",
+      "Verify array alignment"
+    ],
+    commonMistakes: [
+      "Mismatched column counts",
+      "Mixing data types",
+      "Duplicating headers",
+      "Exceeding array limits",
+      "Incorrect array references"
+    ],
+    tipsAndTricks: [
+      "Combine with HSTACK for complex layouts",
+      "Use with UNIQUE to remove duplicates",
+      "Pre-process arrays for consistency",
+      "Handle errors with IFERROR",
+      "Create consolidated reports"
+    ],
+    examples: [
+      {
+        title: "Combining Data Sets",
+        data: [
+          ["Q1 Sales"],
+          ["North", 50000],
+          ["South", 45000],
+          ["Q2 Sales"],
+          ["North", 52000],
+          ["South", 48000]
+        ],
+        formula: "=VSTACK(A2:B3, A5:B6)",
+        result: "[[North, 50000], [South, 45000], [North, 52000], [South, 48000]]",
+        explanation: "Stacks Q1 and Q2 sales data into a single array"
+      },
+      {
+        title: "Multiple List Combination",
+        data: [
+          ["Team A"],
+          ["John"],
+          ["Alice"],
+          ["Team B"],
+          ["Bob"],
+          ["Carol"]
+        ],
+        formula: "=VSTACK(A2:A3, A5:A6)",
+        result: "[[John], [Alice], [Bob], [Carol]]",
+        explanation: "Combines two team lists into a single vertical array"
+      }
+    ],
+    practice: {
+      question: "Combine monthly sales data from different quarters into a single report",
+      data: [
+        ["Q1", "Sales"],
+        ["Jan", 10000],
+        ["Feb", 12000],
+        ["Q2", "Sales"],
+        ["Apr", 11000],
+        ["May", 13000]
+      ],
+      answer: "=VSTACK(A2:B3, A5:B6)",
+      hint: "Use VSTACK to combine the sales data from different quarters, excluding the headers"
+    }
+  },
+
+  "TEXTSPLIT": {
+    syntax: "=TEXTSPLIT(text, [col_delimiter], [row_delimiter], [ignore_empty], [match_mode], [pad_with])",
+    description: "Splits text strings into an array of substrings based on specified delimiters",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/textsplit-function-b1ca414e-4c21-4ca0-b1b7-bdecace8a6e7",
+    whenToUse: [
+      "Parsing delimited text data",
+      "Breaking down complex strings",
+      "Converting text to structured data",
+      "Processing CSV-like content",
+      "Extracting data from formatted strings"
+    ],
+    bestPractices: [
+      "Choose appropriate delimiters",
+      "Handle empty values properly",
+      "Consider case sensitivity",
+      "Plan for irregular data",
+      "Use appropriate match mode"
+    ],
+    commonMistakes: [
+      "Wrong delimiter specification",
+      "Not handling empty values",
+      "Ignoring case sensitivity",
+      "Forgetting about special characters",
+      "Incorrect match mode selection"
+    ],
+    tipsAndTricks: [
+      "Combine with TRIM for clean data",
+      "Use multiple delimiters",
+      "Handle errors with IFERROR",
+      "Process multi-line text",
+      "Create structured arrays"
+    ],
+    examples: [
+      {
+        title: "Basic Text Splitting",
+        data: [
+          ["Full Name"],
+          ["John,Doe"],
+          ["Jane,Smith"]
+        ],
+        formula: "=TEXTSPLIT(A2:A3, \",\")",
+        result: "[[John, Doe], [Jane, Smith]]",
+        explanation: "Splits names into first and last name using comma delimiter"
+      },
+      {
+        title: "Complex Delimiter Splitting",
+        data: [
+          ["Data"],
+          ["1|2|3;4|5|6"],
+          ["7|8|9;10|11|12"]
+        ],
+        formula: "=TEXTSPLIT(A2:A3, \"|\", \";\")",
+        result: "[[1,2,3], [4,5,6], [7,8,9], [10,11,12]]",
+        explanation: "Splits text using both column and row delimiters"
+      }
+    ],
+    practice: {
+      question: "Split a CSV-style text string into an array of values",
+      data: [
+        ["Data"],
+        ["Product,Price,Quantity"],
+        ["Widget,10.99,50"]
+      ],
+      answer: "=TEXTSPLIT(A2:A3, \",\")",
+      hint: "Use TEXTSPLIT with a comma delimiter to separate the CSV values"
+    }
+  },
+
+  "TEXTBEFORE": {
+    syntax: "=TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found])",
+    description: "Returns the text that precedes a specified delimiter in a text string",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/textbefore-function-d099c28a-dba8-448e-ac6c-f086d0fa1b29",
+    whenToUse: [
+      "Extracting prefixes",
+      "Getting usernames from emails",
+      "Parsing structured text",
+      "Finding text before markers",
+      "Cleaning data formats"
+    ],
+    bestPractices: [
+      "Specify correct instance number",
+      "Consider case sensitivity",
+      "Handle missing delimiters",
+      "Use appropriate match mode",
+      "Plan for error cases"
+    ],
+    commonMistakes: [
+      "Wrong instance number",
+      "Ignoring case sensitivity",
+      "Not handling missing delimiters",
+      "Incorrect match mode",
+      "Forgetting about special characters"
+    ],
+    tipsAndTricks: [
+      "Combine with TRIM for clean results",
+      "Use with multiple delimiters",
+      "Handle errors with IFERROR",
+      "Process multiple instances",
+      "Create clean data extracts"
+    ],
+    examples: [
+      {
+        title: "Extract Username from Email",
+        data: [
+          ["Email"],
+          ["john.doe@example.com"],
+          ["jane.smith@example.com"]
+        ],
+        formula: "=TEXTBEFORE(A2:A3, \"@\")",
+        result: "[[john.doe], [jane.smith]]",
+        explanation: "Extracts the username portion before the @ symbol"
+      },
+      {
+        title: "Get First Word",
+        data: [
+          ["Full Text"],
+          ["Hello World"],
+          ["Good Morning Everyone"]
+        ],
+        formula: "=TEXTBEFORE(A2:A3, \" \")",
+        result: "[[Hello], [Good]]",
+        explanation: "Gets the first word before the space character"
+      }
+    ],
+    practice: {
+      question: "Extract the product code from a product ID (format: CODE-NUMBER)",
+      data: [
+        ["Product ID"],
+        ["ABC-123"],
+        ["XYZ-789"]
+      ],
+      answer: "=TEXTBEFORE(A2:A3, \"-\")",
+      hint: "Use TEXTBEFORE with a hyphen delimiter to get the code portion"
+    }
+  },
+
+  "TEXTAFTER": {
+    syntax: "=TEXTAFTER(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found])",
+    description: "Returns the text that follows a specified delimiter in a text string",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/textafter-function-c8db2546-5b51-416a-9690-c7e6722e90b4",
+    whenToUse: [
+      "Extracting suffixes",
+      "Getting domains from emails",
+      "Parsing structured text",
+      "Finding text after markers",
+      "Cleaning data formats"
+    ],
+    bestPractices: [
+      "Specify correct instance number",
+      "Consider case sensitivity",
+      "Handle missing delimiters",
+      "Use appropriate match mode",
+      "Plan for error cases"
+    ],
+    commonMistakes: [
+      "Wrong instance number",
+      "Ignoring case sensitivity",
+      "Not handling missing delimiters",
+      "Incorrect match mode",
+      "Forgetting about special characters"
+    ],
+    tipsAndTricks: [
+      "Combine with TRIM for clean results",
+      "Use with multiple delimiters",
+      "Handle errors with IFERROR",
+      "Process multiple instances",
+      "Create clean data extracts"
+    ],
+    examples: [
+      {
+        title: "Extract Domain from Email",
+        data: [
+          ["Email"],
+          ["john.doe@example.com"],
+          ["jane.smith@company.org"]
+        ],
+        formula: "=TEXTAFTER(A2:A3, \"@\")",
+        result: "[[example.com], [company.org]]",
+        explanation: "Extracts the domain portion after the @ symbol"
+      },
+      {
+        title: "Get Last Name",
+        data: [
+          ["Full Name"],
+          ["John Doe"],
+          ["Jane Smith"]
+        ],
+        formula: "=TEXTAFTER(A2:A3, \" \")",
+        result: "[[Doe], [Smith]]",
+        explanation: "Gets the last name after the space character"
+      }
+    ],
+    practice: {
+      question: "Extract the number from a product ID (format: CODE-NUMBER)",
+      data: [
+        ["Product ID"],
+        ["ABC-123"],
+        ["XYZ-789"]
+      ],
+      answer: "=TEXTAFTER(A2:A3, \"-\")",
+      hint: "Use TEXTAFTER with a hyphen delimiter to get the number portion"
+    }
+  },
+
+  "ARRAYTOTEXT": {
+    syntax: "=ARRAYTOTEXT(array, [delimiter], [include_empty])",
+    description: "Converts an array into a text string with specified delimiters",
+    microsoftUrl: "https://support.microsoft.com/en-us/office/arraytotext-function-9cdcad46-2fa5-4c6b-ac92-14e7bc862b8b",
+    whenToUse: [
+      "Converting arrays to strings",
+      "Creating delimited lists",
+      "Formatting data for export",
+      "Combining array elements",
+      "Preparing data for text processing"
+    ],
+    bestPractices: [
+      "Choose appropriate delimiters",
+      "Handle empty values properly",
+      "Consider final string format",
+      "Plan for large arrays",
+      "Verify data consistency"
+    ],
+    commonMistakes: [
+      "Wrong delimiter choice",
+      "Not handling empty values",
+      "Exceeding text limits",
+      "Inconsistent data types",
+      "Forgetting about formatting"
+    ],
+    tipsAndTricks: [
+      "Use with dynamic arrays",
+      "Combine with other text functions",
+      "Handle errors with IFERROR",
+      "Create custom separators",
+      "Format for specific outputs"
+    ],
+    examples: [
+      {
+        title: "Basic Array to CSV",
+        data: [
+          ["Names"],
+          ["John"],
+          ["Jane"],
+          ["Bob"]
+        ],
+        formula: "=ARRAYTOTEXT(A2:A4, \",\")",
+        result: "John,Jane,Bob",
+        explanation: "Converts an array of names into a comma-separated string"
+      },
+      {
+        title: "Custom Delimiter",
+        data: [
+          ["Products", "Prices"],
+          ["Widget", 10],
+          ["Gadget", 15],
+          ["Tool", 20]
+        ],
+        formula: "=ARRAYTOTEXT(A2:A4, \" | \")",
+        result: "Widget | Gadget | Tool",
+        explanation: "Converts product names into a pipe-delimited string"
+      }
+    ],
+    practice: {
+      question: "Convert an array of numbers into a semicolon-separated string",
+      data: [
+        ["Values"],
+        [10],
+        [20],
+        [30]
+      ],
+      answer: "=ARRAYTOTEXT(A2:A4, \";\")",
+      hint: "Use ARRAYTOTEXT with a semicolon delimiter to join the numbers"
     }
   }
 }; 
